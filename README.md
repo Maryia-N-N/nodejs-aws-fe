@@ -43,3 +43,28 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Manual deploy: `npm run s3:deploy` or `npm run build:s3:deploy`
+Build and upload application to S3 bucket. Created CloudFront distribution should be invalidated manually.
+
+```
+S3 Bucket: https://s3.console.aws.amazon.com/s3/buckets/task-2-subtask-1
+CloudFront URL: d2tialaojpj1gu.cloudfront.net
+```
+
+### Automated deployment: `cloudfront:update:build:deploy` or `npm run cloudfront:deploy`
+Create/update S3 bucket and CloudFront distribution (using CloudFormation). 
+This `cloudfront:build:deploy` command will upload S3 bucket and invalidate CloudFront distribution.
+
+```
+S3 Bucket: https://s3.console.aws.amazon.com/s3/buckets/task-2-subtask-2-app
+S3 website: http://task-2-subtask-2-app.s3-website-eu-west-1.amazonaws.com/
+Cloud Distribution: d9y9cpn13n9ls.cloudfront.net
+```
+
+### `cloudfront:domainInfo`
+Retrieve Domain Name for deployed application.
+
+```
+Serverless: Web App Domain: d9y9cpn13n9ls.cloudfront.net
+```
